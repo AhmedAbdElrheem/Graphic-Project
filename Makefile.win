@@ -1,0 +1,29 @@
+# Project: ProjectOpenGl
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = TheHome.o
+LINKOBJ  = TheHome.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc C:/Dev-Cpp/lib/libopengl32.a C:/Dev-Cpp/lib/libglu32.a C:/Dev-Cpp/lib/libglut32.a 
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = ProjectOpenGl.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+TheHome.o: TheHome.cpp
+	$(CPP) -c TheHome.cpp -o TheHome.o $(CXXFLAGS)
